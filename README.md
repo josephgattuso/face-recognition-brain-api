@@ -36,7 +36,16 @@ and <a href="https://www.mongodb.com/">MongoDB</a>
   </a>
 </p>
 
+<p align="center">
+  <img src="./cover.png" alt=""/>
+</p>
+
 ## 🚀 Quick Start
+
+1. Clone this repo
+2. Run `npm install` or `yarn`
+3. Run `npm start` or `yarn start`
+4. Make sure to use postgreSQL instead of mySQL for the database
 
 ### Using `npm`
 

@@ -1,0 +1,26 @@
+{
+  "name": "face-recognition-brain-api",
+  "private": true,
+  "version": "0.1.0",
+  "author": "Joseph Gattuso <joseph.gattuso@gmail.com>",
+  "license": "MIT",
+  "description": "Face recognition web app",
+  "main": "script.js",
+  "repository": "https://github.com/josephgattuso/face-recognition-brain-api.git",
+  "scripts": {
+    "start": "nodemon server.js",
+    "format": "prettier --write '**/*.{html,css,js,json,jsx,md,mdx,ts,tsx}'"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "knex": "^0.21.5",
+    "pg": "^8.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "prettier": "^2.1.2"
+  }
+}

@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const bcrypt = require('bcrypt-nodejs');
 
 const app = express();
 app.use(bodyParser.json());
@@ -31,6 +32,12 @@ const database = {
       joined: new Date(),
     },
   ],
+  login: [
+    {
+      id: '987',
+      hash: '',
+    },
+  ],
 };
 
 // GET registered users
@@ -53,6 +60,9 @@ app.post('/signin', (req, res) => {
 // POST register a new user
 app.post('/register', (req, res) => {
   const { email, name, password } = req.body;
+  bcrypt.hash(password, null, null, function (err, hash) {
+    console.log(hash);
+  });
   database.users.push({
     id: '125',
     name: name,

@@ -19,11 +19,11 @@ const db = knex({
   },
 });
 
-db.select('*')
-  .from('users')
-  .then(data => {
-    console.log(data);
-  });
+// db.select('*')
+//   .from('users')
+//   .then(data => {
+//     console.log(data);
+//   });
 
 const app = express();
 
@@ -57,7 +57,7 @@ app.post('/imageurl', (req, res) => {
   image.handleApiCall(req, res);
 });
 
-// Initialize the app.
+// Fire up the server
 const server = app.listen(process.env.PORT || 3000, function () {
   const port = server.address().port;
   console.log(' 🚀 app now running on port', port);

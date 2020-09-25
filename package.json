@@ -8,8 +8,8 @@
   "main": "script.js",
   "repository": "https://github.com/josephgattuso/face-recognition-brain-api.git",
   "scripts": {
-    "start": "nodemon server.js",
-    "format": "prettier --write '**/*.{html,css,js,json,jsx,md,mdx,ts,tsx}'"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",

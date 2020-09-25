@@ -58,7 +58,7 @@ app.post('/imageurl', (req, res) => {
 });
 
 // Fire up the server
-const server = app.listen(process.env.PORT || 3000, function () {
-  const port = server.address().port;
-  console.log(' 🚀 app now running on port', port);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, function () {
+  console.log(` 🚀 app now running on port ${PORT}!`);
 });

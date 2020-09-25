@@ -5,6 +5,7 @@ const cors = require('cors');
 const knex = require('knex');
 
 const register = require('./controllers/register');
+const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 
 const db = knex({
@@ -78,17 +79,7 @@ app.post('/register', (req, res) => {
 
 // GET user profile
 app.get('/profile/:id', (req, res) => {
-  const { id } = req.params;
-  let found = false;
-  database.users.forEach(user => {
-    if (user.id === id) {
-      found = true;
-      return res.json(user);
-    }
-  });
-  if (!found) {
-    res.status(400).json('💩 not found');
-  }
+  profile.handleProfileGet(req, res, db);
 });
 
 // PUT a new user image entry

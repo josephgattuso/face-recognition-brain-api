@@ -5,6 +5,7 @@ const cors = require('cors');
 const knex = require('knex');
 
 const register = require('./controllers/register');
+const image = require('./controllers/image');
 
 const db = knex({
   client: 'pg',
@@ -92,18 +93,11 @@ app.get('/profile/:id', (req, res) => {
 
 // PUT a new user image entry
 app.put('/image', (req, res) => {
-  const { id } = req.body;
-  let found = false;
-  database.users.forEach(user => {
-    if (user.id === id) {
-      found = true;
-      user.entries++;
-      return res.json(user.entries);
-    }
-  });
-  if (!found) {
-    res.status(400).json('💩 not found');
-  }
+  image.handleImage(req, res, db);
+});
+
+app.post('/imageurl', (req, res) => {
+  image.handleApiCall(req, res);
 });
 
 // Initialize the app.

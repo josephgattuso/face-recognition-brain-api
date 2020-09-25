@@ -13,43 +13,22 @@ const db = knex({
   client: 'pg',
   connection: {
     host: '127.0.0.1',
-    user: 'jgattus',
+    user: 'joeetuso',
     password: '',
     database: 'smart-brain',
   },
 });
 
+db.select('*')
+  .from('users')
+  .then(data => {
+    console.log(data);
+  });
+
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-
-const database = {
-  users: [
-    {
-      id: '123',
-      name: 'Gizmo',
-      email: 'gizmo@email.com',
-      password: 'treats',
-      entries: 0,
-      joined: new Date(),
-    },
-    {
-      id: '124',
-      name: 'Rufus',
-      email: 'rufus@email.com',
-      password: 'cookies',
-      entries: 0,
-      joined: new Date(),
-    },
-  ],
-  login: [
-    {
-      id: '987',
-      hash: '',
-    },
-  ],
-};
 
 // GET registered users
 app.get('/', (req, res) => {

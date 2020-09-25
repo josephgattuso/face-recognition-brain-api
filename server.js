@@ -4,6 +4,8 @@ const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex');
 
+const register = require('./controllers/register');
+
 const db = knex({
   client: 'pg',
   connection: {
@@ -52,15 +54,8 @@ app.get('/', (req, res) => {
 });
 
 // POST user auth credentials
-app.post('/signin', (req, res) => {
-  if (
-    req.body.email === database.users[0].email &&
-    req.body.password === database.users[0].password
-  ) {
-    res.json(database.users[0]);
-  } else {
-    res.status(400).json('💩 error logging in');
-  }
+app.post('/register', (req, res) => {
+  register.handleRegister(req, res, db, bcrypt);
 });
 
 // POST register a new user
